@@ -6,6 +6,9 @@ from typing import List
 
 def filter_datum(fields: List[str], redaction: str,
                  message: str, separator: str) -> str:
+    """
+    filtering
+    """
     return re.sub(
         f"({'|'.join(fields)})=[^;]*",
         lambda m: f"{m.group(1)}={redaction}",
