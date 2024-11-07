@@ -3,7 +3,7 @@
 simple module for logging system
 """
 import re
-from typeing import List
+from typing import List
 
 
 def filter_datum(fields: List[str], redaction: str,
