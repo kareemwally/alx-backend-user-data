@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+"""
+simple module for formatting the users' data.
+"""
 import logging
 import re
 from typing import List
