@@ -3,9 +3,11 @@
 simple module for logging system
 """
 import re
+from typeing import List
 
 
-def filter_datum(fields, redaction, message, separator):
+def filter_datum(fields: List[str], redaction: str,
+                 message: str, separator: str) -> str:
     """
     filtering the message for logging file
     """
