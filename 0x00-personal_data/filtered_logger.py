@@ -5,8 +5,26 @@ simple module for formatting the users' data.
 import logging
 import re
 from typing import List
+import os
+import mysql.connector
+from mysql.connector import connection
 
 PII_FIELDS = ("name", "email", "phone", "ssn", "password")
+
+
+def get_db() -> connection.MySQLConnection:
+    """
+    Returns a MySQL database connection using
+    environment variables for credentials.
+    """
+    username = os.getenv("PERSONAL_DATA_DB_USERNAME", "root")
+    password = os.getenv("PERSONAL_DATA_DB_PASSWORD", "")
+    host = os.getenv("PERSONAL_DATA_DB_HOST", "localhost")
+    database = os.getenv("PERSONAL_DATA_DB_NAME")
+    return mysql.connector.connect(user=username,
+                                   password=password,
+                                   host=host,
+                                   database=database)
 
 
 def filter_datum(fields: List[str], redaction: str,
