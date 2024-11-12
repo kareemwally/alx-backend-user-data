@@ -15,8 +15,8 @@ class BasicAuth(Auth):
         Extracts the Base64 part of the Authorization
         eader for Basic Authentication
         """
-        if authorization_header is None or not
-        isinstance(authorization_header, str):
+        if authorization_header is None or not\
+                isinstance(authorization_header, str):
             return None
         if not authorization_header.startswith("Basic "):
             return None
