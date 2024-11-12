@@ -37,3 +37,10 @@ def unauthorized() -> str:
       - the status of the API
     """
     abort(401)
+
+
+@app_views.route('/api/v1/forbidden', methods=['GET'],
+                 strict_slashes=False)
+def forbidden():
+    """ Endpoint to raise a 403 error """
+    abort(403)
