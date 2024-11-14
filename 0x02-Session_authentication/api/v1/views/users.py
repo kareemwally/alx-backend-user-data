@@ -126,12 +126,11 @@ def update_user(user_id: str = None) -> str:
                  methods=['GET'], strict_slashes=False)
 def get_user(user_id):
     """ Retrieves a user by ID """
-    if user_id == "me":
-        if request.current_user is None:
-            abort(404)
-        return jsonify(request.current_user.to_dict())
-
-    user = User.get(user_id)
-    if user is None:
+    if user_id == "me" and request.current_user is None:
         abort(404)
-    return jsonify(user.to_dict())
+    if user_id == "me" and request.current_user is not None:
+        return jsonify(request.current_user.to_json())
+    user = User.get(user_id)
+    if not user:
+        abort(404)
+    return jsonify(user.to_json())
