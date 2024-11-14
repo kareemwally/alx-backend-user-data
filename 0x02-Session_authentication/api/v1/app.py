@@ -20,6 +20,9 @@ auth = Auth()
 
 @app.before_request
 def before_request():
+    """
+    before request check authenication
+    """
     request.current_user = auth.current_user(request)
 
 
