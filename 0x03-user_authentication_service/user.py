@@ -7,6 +7,7 @@ from sqlalchemy import Column, Integer, String
 
 Base = declarative_base()
 
+
 class User(Base):
     """
     the User model represnting the user table
@@ -16,4 +17,4 @@ class User(Base):
     email = Column(String, nullable=False)
     hashed_password = Column(String, nullable=False)
     session_id = Column(String, nullable=True)
-    reset_token = Column(String, nullable)
+    reset_token = Column(String, nullable=True)
